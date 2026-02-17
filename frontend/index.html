@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Object Detection & OCR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Vision<span class="highlight">Sync</span></h1>
+            <p>Interactive Object Detection & OCR Analysis</p>
+        </header>
+
+        <section class="features-summary">
+            <div class="feature-item">
+                <span class="feature-icon">🔍</span>
+                <span>Advanced Detection</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📝</span>
+                <span>Smart OCR</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🤖</span>
+                <span>Auto-Description</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🔎</span>
+                <span>Interactive Search</span>
+            </div>
+        </section>
+
+        <main>
+            <div class="content-wrapper">
+                <section class="visual-area">
+                    <div id="upload-zone" class="upload-zone">
+                        <div class="upload-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-upload-cloud">
+                                <polyline points="16 16 12 12 8 16"></polyline>
+                                <line x1="12" y1="12" x2="12" y2="21"></line>
+                                <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+                                <polyline points="16 16 12 12 8 16"></polyline>
+                            </svg>
+                            <p>Drag & Drop an image here</p>
+                            <button id="browse-btn">Browse Files</button>
+                            <input type="file" id="file-input" hidden accept="image/*">
+                        </div>
+                    </div>
+
+                    <div id="canvas-container" class="canvas-container hidden">
+                        <img id="source-image" src="" alt="Source">
+                        <div id="overlay"></div>
+                        <div class="loader hidden" id="loader">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="info-panel">
+                    <div class="panel-header">
+                        <h2>Analysis Results</h2>
+                        <button id="back-btn" class="secondary-btn hidden">New Upload</button>
+                    </div>
+
+                    <div class="panel-body">
+                        <div id="summary-card" class="summary-card hidden">
+                            <h3>Overview</h3>
+                            <p id="scene-summary"></p>
+                        </div>
+
+                        <div class="search-box hidden" id="search-box">
+                            <input type="text" id="search-input" placeholder="Filter objects (e.g. 'car')...">
+                        </div>
+
+                        <div id="results-content" class="results-content">
+                            <p class="placeholder-text">Upload an image to see detection results.</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
