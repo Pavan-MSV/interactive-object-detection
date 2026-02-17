@@ -15,12 +15,18 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the backend code into the container
-COPY backend/ .
+# Copy the backend code into a subdirectory
+COPY backend/ backend/
 
-# Copy the model weights into the container (so it doesn't download them on every start)
-COPY yolov8x.pt .
-COPY yolov8m_hardhat.pt .
+# Copy the frontend code into a subdirectory
+COPY frontend/ frontend/
+
+# Copy the model weights into the backend directory (so they are next to main.py)
+COPY yolov8x.pt backend/
+COPY yolov8m_hardhat.pt backend/
+
+# Change working directory to backend so uvicorn finds main.py easily
+WORKDIR /app/backend
 
 # Cloud Run expects the app to listen on port 8080, but HF Spaces expects 7860
 ENV PORT=7860
