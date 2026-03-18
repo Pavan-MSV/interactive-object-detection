@@ -1,11 +1,4 @@
----
-title: Interactive Object Detection
-emoji: 🕵️
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-app_port: 7860
----
+
 
 # VisionSync - Interactive Object Detection & OCR
 
